@@ -6,18 +6,20 @@ Name your method differently (that is, not inject() or subclass Array) because r
 If you would like a challenge, rewrite inject using two approaches: using iterators and using recursion but it’s not required to pass.
 
 
-### analysing inject
-inject
-
+### Analysing inject
+```
 [1,2,3,4,5].inject() { |original, new| original * new} > 120
-
+```
 Runs a block against the array, like each...?
 
 http://www.ruby-doc.org/core-2.1.2/Enumerable.html#method-i-inject
 
 > **inject(initial, sym) → obj**
+
 > **inject(sym) → obj**
+
 > **inject(initial) { |memo, obj| block } → obj**
+
 > **inject { |memo, obj| block } → obj**
 >
 > Combines all elements of enum by applying a binary operation, specified by a block or a symbol that names a method or operator.
@@ -26,9 +28,9 @@ http://www.ruby-doc.org/core-2.1.2/Enumerable.html#method-i-inject
 >
 > If you do not explicitly specify an initial value for memo, then the first element of collection is used as the initial value of memo.
 
-* so it iterates through the passed array and performs a block on them. And has a starting point.
+**So it iterates through the passed array and performs a block on them. And has a starting point.**
 
-### anaylsing behaviour in pry / irb
+### Anaylsing behaviour in pry / irb
 ```````
 numbers = [1,2,3,4,5]
 
@@ -85,7 +87,6 @@ numbers.inject(100) {|total, current| total + current }
 
 ##Got it!
 ````
-
 numbers.inject {|total, current| total + current }
 => 15
 
@@ -108,7 +109,6 @@ numbers.inject(100) {|total, current| total + current }
 ### Now with letters...
 
 ```
-
 letters = ['A','a','B','b','C','c']
 letters.inject('Alphabet: ') {|memo, current| memo + current }
 => "Alphabet: AaBbCc"
@@ -118,8 +118,6 @@ letters.inject('Alphabet: ') {|memo, current| memo + current }
 
 letters.inject('Alphabet: ') {|memo, current| current }
 => "c"
-
-
 ```
 
 ### Spec
